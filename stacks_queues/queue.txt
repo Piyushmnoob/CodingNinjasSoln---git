@@ -1,0 +1,46 @@
+1) A queue is a ?
+
+Options:-
+FIFO (First In First Out) list  <---- 
+LIFO (Last In First Out) list
+Ordered array
+Linear tree
+
+2) If the elements “p”, “q”, “r” and “s” are placed in a queue and are deleted one at a time, in what order will they be removed?
+
+Options:-
+srqp
+pqrs  <-------
+srpq
+qrsp
+
+3) Insert element
+
+In optimized linked list implementation of a queue, where does a new element be inserted?
+
+Options:-
+At the head of linked list
+At the tail of the linked list  <---------- 
+At the centre position in the linked list
+None 
+
+
+4) Worst case operation
+
+In linked list implementation of queue, if only front pointer is maintained, which of the following operation take worst case time (i.e. O(n) )?
+
+Options:-
+Insertion from rear <-----------
+Deletion from front
+Both
+None
+
+5) Insert in queue
+
+In linked list implementation of a queue, front and rear pointers are tracked. Which of these pointers will change during an insertion into EMPTY queue?
+Options:-
+Only front pointer
+Only rear pointer
+Both front and rear pointer <-------------- 
+None
+
