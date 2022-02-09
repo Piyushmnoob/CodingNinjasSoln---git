@@ -1,0 +1,310 @@
+1) What is the output
+
+What will be the output of the following code ?
+
+#include <iostream>
+using namespace std;
+#include <cstring>
+
+class Student{
+    public :
+    char *name;
+    int rollNo;
+
+    // Constructor 1
+    Student(int num){
+        rollNo = num;
+        name = new char[10];
+        strcpy(name, "abc");
+    }
+
+    // Constructor 2
+    Student(int num, char *str){
+        rollNo = num;
+        name = new char[strlen(str) + 1];
+        strcpy(name, str);
+    }
+
+    void print(){
+        cout << name << " "  <<  rollNo << " ";
+    }
+};
+
+int main() {
+    Student s1(101);
+    s1.print();
+    Student *s2 = new Student(150, "xyz");
+    s2 -> print();
+}
+
+Options
+Error   <---------
+GarbageValue 101 xyz 150
+abc 101 xyz 150
+None
+
+
+2) What is the output
+
+#include <iostream>
+using namespace std;
+
+class Student{
+    public :
+        char *name;
+        int rollNo;
+
+        void print(){
+            cout << name << " "  <<  rollNo << " ";
+        }
+};
+
+int main() {
+    char name[] = "Misha";
+    Student s1;
+    s1.name = name;
+    s1.rollNo = 101;
+
+    name[0] = 'N';
+    Student s2;
+    s2.name = name;
+    s2.rollNo = 102;
+
+    s1.print();
+    s2.print();
+}
+
+Options
+Misha 101 Nisha 102
+Nisha 101 Nisha 102 <-------------- 
+Misha 101 Misha 102
+Nisha 101 Misha 102
+
+
+3) What is the output
+
+class Student {
+    public :
+
+    const int rollNumber;
+    int age;
+
+};
+
+
+int main() {
+    Student s1;
+    s1.rollNumber = 101;
+    s1.age = 20;
+
+    cout << s1.rollNumber << " " << s1.age;
+
+}
+
+Options
+101 20
+Garbage
+Compilation Error  <------------- 
+None
+
+
+4) What is the output
+
+class Student {
+    public :
+
+    const int rollNumber;
+    int age;
+
+    Student(int r, int a) : rollNumber(r), age(a) {
+    }
+};
+
+
+int main() {
+    Student s1(100, 23);
+    cout << s1.rollNumber << " " << s1.age;
+}
+
+Options
+Error
+100 Garbage
+100 23 <-----------
+Garbage Garbage
+
+
+5) What is the output
+
+class Student {
+    public :
+
+    const int rollNumber;
+    int age;
+
+    int &x;
+
+    Student(int r, int a) : rollNumber(r), age(a) {
+    }
+};
+
+
+int main() {
+    Student s1(100, 23);
+    s1.x = age;
+    cout << s1.rollNumber << " " << s1.age << " " << s1.x;
+}
+
+Options
+100 23 23
+100 23 Garbage
+Error <------------- 
+None
+
+
+6) Member function
+
+If a member function does not alter any data in the class, that may be declared as ....................
+
+Options
+constant member function <-------- 
+private member function
+static member function
+None
+
+
+7) What is the output
+
+class Student {
+    public :
+
+    int rollNumber;
+    int age;
+
+};
+
+
+int main() {
+    Student s1;
+
+    Student const s2 = s1;
+
+    s1.rollNumber = 101;
+    s1.age = 20;
+
+    cout << s2.rollNumber << " " << s2.age;
+}
+
+Options
+101 20
+Error
+Garbage Garbage <--------------------
+None
+
+
+8) What is the output
+
+class Student {
+    int rollNumber;
+
+    public :
+
+    int age;
+
+    Student(int r) {
+        rollNumber = r;
+    }
+
+    int getRollNumber() {
+        return rollNumber;
+    }
+
+};
+
+
+int main() {
+    Student s1(101);
+    s1.age = 20;
+
+    Student const s2 = s1;
+    cout << s2.getRollNumber();
+}
+
+Options
+101
+0
+Garbage
+Error <-----------
+
+
+9) Correct statement
+
+class Student {
+    public :
+
+    int rollNumber;
+    static int totalStudents;
+};
+
+int Student::totalStudents = 20;
+
+int main() {
+    Student s;
+    // Correct statement to access totalStudents
+}
+
+Options
+totalStudents
+s.totalStudents
+Student.totalStudents
+Student :: totalStudents  <---------------
+
+
+10) What is the output
+
+class Student {
+    public :
+
+    int rollNumber;
+
+    static int getRollNumber() {
+        return rollNumber;
+    }
+};
+
+
+int main() {
+    Student s;
+    s.rollNumber = 101;
+    cout << s.getRollNumber() << endl;
+}
+
+Options
+101
+0
+Compilation Error <------------- 
+Error
+
+
+11) Fill the output
+
+class Student {
+    public :
+
+    int rollNumber;
+    static int totalStudents;
+
+    Student() {
+        totalStudents++;
+    }
+};
+
+int Student::totalStudents = 20;
+
+int main() {
+    Student s1, s2, s3, s4;
+    cout << Student :: totalStudents;
+}
+
+Answer
+24
+
